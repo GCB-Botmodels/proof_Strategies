@@ -1,40 +1,8 @@
-Antes de pasar a desarrollar el punto 4 quiero comentarles que he trabajado con pyinstaller para generar un ejecutable (strategies.exe - Shorcut) 
-suponiendo que el cliente no está acostumbrado a trabajar con la consola, como también para evitar que deba instalarse los programas que son 
-necesarios para correr el script. Esto me llevó a tener que unificar el código en un solo archivo que contiene dos funciones run_req_res y 
-execution_time. Originalmente el script se dividió en un archivo que contenía la primer función y un segundo con execution_time, el cual importa 
-la función run_req_res para hacerla correr desde este archivo. Si no desean clonar o descargar todo el contenido del repositorio deben utilizar
-solo el archivo strategies.py que es donde se encuentra el script desarrollado.
+I want to tell you that I have worked with pyinstaller to generate an executable (strategies.exe - Shorcut) assuming that users are not used to working with the console,
+as well as to avoid having to install the programs that are necessary to run the script. This led me to have to unify the code in a single file that contains two
+functions run_req_res and execution_time. Originally the script was split into a file containing the first function and a second with execution_time, which imports the
+run_req_res function to run from this file. If you do not want to clone or download all the content of the repository, you should only use the strategies.py file, which
+is where the developed script is located.
 
-Punto 4:
-Entiendo que las 3 estrategias buscan aprovechar patrones de comportamiento observados en determinados activos los cuáles posiblemente no tengan
-mucha portabilidad sobre otros activos, pero recalco que es solo una suposición en base a mi experiencia con similares estrategias.
-Algo que es muy importante conocer antes de empezar a programar los requerimientos son los objetivos que buscan las estrategias para poder 
-alinear el análisis y los indicadores de resultados con los mismos. Siempre y cuando el cliente esté interesado en dar a conocerlos.
-
-Debido a lo expresado en el primer párrafo me parece que pueden existir dos caminos de mejoras para las estrategias:
-
-1-Si es posible conocer los activos sobre los cuales se desea realizar el análisis se podría: 
-
-A-Realizar un Backtest básico realizando iteraciones de las variables sobre las cuáles se hicieron observaciones en un rango de parámetros 
-comparando los resultados con el buy and hold y/o algún otro benchmark.
-
-B-En base a los resultados del Backtest se pasaría a un Análisis de Sensibilidad buscando la estabilidad del sistema, en el caso de existir.
-
-C-Seguido pasaría a hacer un Análisis de Portabilidad sobre la otra muestra del mismo activo y/o sobre otro activo utilizando matrices de 
-correlación o curvas de distribución que permitan identificar los grupos donde mejores rendimientos obtuvo el backtest.
-
-D-Y por último si los resultados lo justifican se realizaría un Backtest avanzado donde se podría analizar el manejo de posiciones/riesgo
-como la factibilidad técnica (volúmenes, liquidez, spreads, fallas, tiempos, etc)
-
-
-2-Si NO es posible conocer los activos sobre los cuales se desea realizar el análisis solo se podría ofrecer una segunda versión del script 
-que permita realizar un Backtest básico realizando iteraciones de las variables permitiendo al cliente cargar los parámetros que desee y 
-además se podría agregar la comparación de resultados con el buy and hold.
-
-
-Extra: Cuestiones como derechos de mercado entre otras erogaciones de la operatoria (depende del mercado) se podrían incluir en el
-Backtest básico y aún más importante en el Backtest avanzado.
-
-El dataset fue obtenido de la librería yfinance la cual te limita a una semana para solicitar datos intradiarios por lo que no se 
-cumplía el requerimiento de dos semanas.de cotizaciones. Dependiendo de los objetivos del cliente tal vez pueda ser una mejor opción 
-trabajar con alguna API u otra fuente que permita analizar la estrategia con datos intradiarios.
+The dataset was obtained from the yfinance library, which limits you to one week to request intraday data, so the requirement of two weeks of quotes was not met.
+Depending on the requirements of the users, it may be a better option to work with an API or another source that allows analyzing the strategy with intraday data.
